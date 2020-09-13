@@ -21,7 +21,7 @@ this.setState({
     return (
       <Fragment>
         <div className="login_warp">
-          {this.state.formType == "login" ? (
+          {this.state.formType === "login" ? (
             <LoginForm switchForm={this.switchForm}></LoginForm>
           ) : (
             <RegisterForm switchForm={this.switchForm}></RegisterForm>

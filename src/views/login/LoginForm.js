@@ -40,13 +40,17 @@ class LoginForm extends Component {
               rules={[
                 {
                   required: true,
-                  message: "请输入用户名",
+                  message: "邮箱不能为空",
+                },
+                {
+                 type:"email",
+                  message: "请输入正确的邮箱",
                 },
               ]}
             >
-              <Input
+              <Input allowClear 
                 prefix={<UserOutlined className="site-form-item-icon" />}
-                placeholder="请输入用户名"
+                placeholder="请输入邮箱"
               />
             </Form.Item>
             <Form.Item
@@ -54,11 +58,17 @@ class LoginForm extends Component {
               rules={[
                 {
                   required: true,
-                  message: "请输入密码",
+                  message: "密码不能为空",
+                },
+                {
+                  min:6,
+                  max:12,
+                  message: "密码长度应该在6至12位",
                 },
               ]}
             >
-              <Input
+              <Input.Password allowClear 
+
                 prefix={<UnlockOutlined className="site-form-item-icon" />}
                 placeholder="请输入密码"
               />
@@ -74,7 +84,7 @@ class LoginForm extends Component {
             >
               <Row gutter={13}>
                 <Col span={15}>
-                  <Input
+                  <Input allowClear 
                     prefix={<QrcodeOutlined className="site-form-item-icon" />}
                     placeholder="请输入验证码"
                   />
