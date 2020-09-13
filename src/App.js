@@ -3,15 +3,14 @@ import React from "react";
 import "./App.css";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 // 引用组件
-import Home from "./views/Home";
-import About from "./views/About.js";
+import Login from "./views//login";
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <Switch>
-          <Route component={Home} exact path="/"></Route>
-          <Route component={About} exact path="/about"></Route>
+          <Route component={Login} exact path="/"></Route>
         </Switch>
       </BrowserRouter>
     </>
