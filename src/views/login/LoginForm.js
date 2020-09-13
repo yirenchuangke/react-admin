@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Login } from "../../api/account";
 // css
 import "./index.scss";
 // ANTD
@@ -14,6 +15,11 @@ class LoginForm extends Component {
     this.state = {};
   }
   onFinish = (val) => {
+    Login(val).then(res=>{
+console.log(res)
+    }).catch(err=>{
+      console.log(err)
+    })
     console.log(val);
   };
   tiggleForm = () => {
