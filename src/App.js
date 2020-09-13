@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./App.css";
-import { Switch, Route, HashRouter, BrowserRouter } from "react-router-dom";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 // 引用组件
 import Home from "./views/Home";
 import About from "./views/About.js";
