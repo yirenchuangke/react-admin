@@ -5,5 +5,5 @@ import service from "../utils/request.js";
  */
 
 export function Login(data) {
-  service.post("/login", data);
+ return  service.post("/login", data);
 }
