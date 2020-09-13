@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // css
 import "./index.scss";
 // ANTD
-import { Form, Input, Button, Row, Col, Divider } from "antd";
+import { Form, Input, Button, Row, Col } from "antd";
 import {
   UserOutlined,
   UnlockOutlined,
