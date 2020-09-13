@@ -16,9 +16,9 @@ class LoginForm extends Component {
   onFinish = (val) => {
     console.log(val);
   };
-  tiggleForm=()=>{
- this.props.switchForm("Register")
-  }
+  tiggleForm = () => {
+    this.props.switchForm("Register");
+  };
   render() {
     return (
       <div>
@@ -43,12 +43,13 @@ class LoginForm extends Component {
                   message: "邮箱不能为空",
                 },
                 {
-                 type:"email",
+                  type: "email",
                   message: "请输入正确的邮箱",
                 },
               ]}
             >
-              <Input allowClear 
+              <Input
+                allowClear
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="请输入邮箱"
               />
@@ -61,14 +62,14 @@ class LoginForm extends Component {
                   message: "密码不能为空",
                 },
                 {
-                  min:6,
-                  max:12,
+                  min: 6,
+                  max: 12,
                   message: "密码长度应该在6至12位",
                 },
               ]}
             >
-              <Input.Password allowClear 
-
+              <Input.Password
+                allowClear
                 prefix={<UnlockOutlined className="site-form-item-icon" />}
                 placeholder="请输入密码"
               />
@@ -80,11 +81,16 @@ class LoginForm extends Component {
                   required: true,
                   message: "请输入验证码",
                 },
+                {
+                  len: 6,
+                  message: "请输入长度为6位的验证码",
+                },
               ]}
             >
               <Row gutter={13}>
                 <Col span={15}>
-                  <Input allowClear 
+                  <Input
+                    allowClear
                     prefix={<QrcodeOutlined className="site-form-item-icon" />}
                     placeholder="请输入验证码"
                   />
