@@ -8,19 +8,22 @@
     width: 100%;
   }
 
-  .form_header {
-    height: 56px;
-    line-height: 56px;
-    color: #FFFFFF;
+ 
+}
+.form_header {
+  height: 56px;
+  line-height: 56px;
+  color: #FFFFFF;
 .column{
-  font-size: 16px;
-  float: left;
-  margin: 0;
+color: #FFFFFF;
+font-size: 16px;
+float: left;
+margin: 0;
 }
 span{
-  float: right;
-  font-size: 12px;
-  opacity: .3;
+float: right;
+font-size: 12px;
+opacity: .3;
+cursor: pointer;
 }
-  }
 }
