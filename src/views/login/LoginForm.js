@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Login } from "../../api/account";
+import { Login, getSms } from "../../api/account";
 // css
 import "./index.scss";
 // ANTD
-import { Form, Input, Button, Row, Col } from "antd";
+import { Form, Input, Button, Row, Col, message } from "antd";
 import {
   UserOutlined,
   UnlockOutlined,
@@ -12,7 +12,10 @@ import {
 class LoginForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      username: "",
+      code_button_disabled:true
+    };
   }
   onFinish = (val) => {
     Login(val)
@@ -25,10 +28,40 @@ class LoginForm extends Component {
       });
     console.log(val);
   };
+  /**
+   輸入處理
+   */
+  inpuyChange = (e) => {
+    console.log(e.target.value);
+    this.setState({
+      username: e.target.value,
+    });
+  };
+  //获取验证码
+  getCode = () => {
+    if (!this.state.username) {
+      message.warning("邮箱不能为空！！",1);
+      return;
+    }
+    const requestData = {
+      username: this.state.username,
+      module: "login",
+    };
+    getSms(requestData)
+      .then((res) => {
+        let { data } = res;
+        console.log(data, "获取验证码");
+      })
+      .catch((err) => {
+        console.log(err, "錯誤提示");
+      });
+    console.log("获取验证码");
+  };
   tiggleForm = () => {
     this.props.switchForm("Register");
   };
   render() {
+    const { username,code_button_disabled } = this.state;
     return (
       <div>
         <div className="form_header">
@@ -58,6 +91,8 @@ class LoginForm extends Component {
               ]}
             >
               <Input
+                value={username}
+                onChange={this.inpuyChange}
                 allowClear
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="请输入邮箱"
@@ -105,7 +140,7 @@ class LoginForm extends Component {
                   />
                 </Col>
                 <Col span={9}>
-                  <Button type="danger" block>
+                  <Button type="danger" block onClick={this.getCode} disabled={code_button_disabled}>
                     获取验证码
                   </Button>
                 </Col>

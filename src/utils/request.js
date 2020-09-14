@@ -2,13 +2,14 @@ import axios from "axios";
 
 // 第一步创建axios实例
 const service = axios.create({
-  baseURL: "devApi",
+  baseURL: "/devApi",
   timeout: 5000,
 });
 
 // 第二步请求拦截
 service.interceptors.request.use(
   function (config) {
+    console.log(process.env.NODE_ENV)
     // 在发送请求之前做些什么
     return config;
   },
